@@ -1,0 +1,12 @@
+
+PHÂN TÍCH HIỆU SUẤT INDEX:
+
+B-tree index hiệu quả nhất cho truy vấn equality và range như "genre = 'fantasy'" vì có thể sử dụng index scan thay vì sequential scan toàn bảng.
+
+GIN index tối ưu cho full-text search trong title và description với to_tsvector/to_tsquery, cho phép tìm kiếm từ khóa nhanh chóng trong văn bản.
+
+Clustered index sắp xếp vật lý dữ liệu theo genre giúp tăng hiệu suất khi đọc nhiều rows cùng genre liên tiếp trên disk.
+
+Hash index không được khuyến nghị trong postgresql vì chỉ hỗ trợ equality operator, không có write-ahead logging, không được replicate và performance không tốt hơn b-tree đáng kể.
+
+Kết quả cho thấy việc tạo index phù hợp giảm đáng kể thời gian thực thi từ sequential scan xuống index scan cho các truy vấn thường xuyên.
