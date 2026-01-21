@@ -1,0 +1,13 @@
+BÁO CÁO BÀI TẬP POSTGRESQL VIEW
+
+PHÂN TÍCH VỀ VIEW:
+
+View v_order_summary ẩn thông tin nhạy cảm email và phone, chỉ hiển thị full_name, total_amount, order_date cho bộ phận kế toán, đảm bảo bảo mật thông tin khách hàng.
+
+Cập nhật qua view chỉ khả thi với view đơn giản không có join hoặc group by, do đó cần tạo view riêng v_orders_updateable với WITH CHECK OPTION để đảm bảo ràng buộc.
+
+View v_monthly_sales thống kê doanh thu theo tháng giúp phân tích xu hướng kinh doanh một cách trực quan và dễ dàng.
+
+DROP VIEW xóa định nghĩa view và các truy vấn dựa trên nó sẽ lỗi, còn DROP MATERIALIZED VIEW xóa cả định nghĩa lẫn dữ liệu đã lưu trữ vật lý.
+
+View thông thường tính toán dữ liệu real-time khi truy vấn, materialized view lưu trữ kết quả và cần REFRESH để cập nhật, phù hợp cho truy vấn phức tạp trên dữ liệu ít thay đổi.
