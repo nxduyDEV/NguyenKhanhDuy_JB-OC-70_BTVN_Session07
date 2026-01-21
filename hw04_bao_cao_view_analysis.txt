@@ -1,0 +1,13 @@
+BÁO CÁO BÀI TẬP VIEW PHÂN TÍCH DOANH THU THƯƠNG MẠI ĐIỆN TỬ
+
+PHÂN TÍCH CÁC LOẠI VIEW TRONG HỆ THỐNG:
+
+View v_revenue_by_region tổng hợp doanh thu theo khu vực giúp quản lý dễ dàng theo dõi hiệu suất kinh doanh từng vùng miền, hỗ trợ quyết định phân bổ tài nguyên và chiến lược marketing.
+
+Materialized View mv_monthly_sales lưu trữ dữ liệu đã tính toán sẵn về doanh thu hàng tháng, tăng tốc độ truy vấn đáng kể cho các báo cáo phân tích xu hướng mà không cần tính toán lại.
+
+Updatable View v_order_management với WITH CHECK OPTION đảm bảo tính toàn vẹn dữ liệu khi cập nhật status đơn hàng, ngăn chặn các thay đổi vi phạm business rules.
+
+Nested View v_revenue_above_avg xây dựng trên v_revenue_by_region cho phép lọc ra các khu vực có hiệu suất trên trung bình quốc gia, hỗ trợ phân tích so sánh hiệu quả.
+
+Hệ thống view phân tầng này tạo ra kiến trúc dữ liệu linh hoạt, cho phép tái sử dụng logic tính toán và đơn giản hóa các truy vấn phức tạp cho báo cáo executive.
