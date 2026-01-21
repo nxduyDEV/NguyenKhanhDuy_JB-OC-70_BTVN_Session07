@@ -1,0 +1,11 @@
+PHÂN TÍCH CÁC LOẠI INDEX
+
+Expression Index với lower(content) tối ưu hóa truy vấn ILIKE bằng cách tạo index trên kết quả hàm lower(), cho phép tìm kiếm case-insensitive nhanh chóng mà không cần sequential scan.
+
+GIN Index cho cột tags array cực kỳ hiệu quả cho các array operations như @>, &&, và ANY, cho phép tìm kiếm tag nhanh chóng trong mảng thay vì duyệt từng phần tử.
+
+Partial Index với điều kiện WHERE is_public = true chỉ lập index cho dữ liệu cần thiết, tiết kiệm không gian lưu trữ và tăng performance cho truy vấn bài viết công khai gần đây.
+
+Composite Index (user_id, created_at DESC) tối ưu đồng thời cho việc filter theo user và sắp xếp theo thời gian, đặc biệt hiệu quả cho timeline cá nhân.
+
+Kết hợp các loại index này giúp hệ thống mạng xã hội xử lý các truy vấn phức tạp về search content, filter tags, và hiển thị timeline với hiệu suất cao.
